@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>所有保单</title>
+</head>
+<!--jquery需要引入的文件-->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
+<script language="javascript">
+function loadingForm(img,txt) {
+   txt.style.color = 'black';
+   txt.innerText = '正在加载...'
+   img.style.display="inline";
+   target_url = '';
+   {% if mode == "viewAll" %}
+      target_url = "load_next_baodan";
+   {% endif %}
+   {% if mode == "viewToAccept" %}
+      target_url = "load_baodan_toaccept";
+   {% endif %}
+   {% if mode == "viewAccepted" %}
+      target_url = "load_baodan_accepted";
+   {% endif %}
+   $("#container").html("");
+   var selected=$("#insList").val();
+   var i = $("#insList").prop('selectedIndex');
+   $.ajax({
+      type: 'post',
+      cache: false,
+      url: target_url,
+      data:JSON.stringify({
+         "baodan_numb":selected,
+      }),
+      contentType: "application/json",
+      dataType: "html",
+      processData: false,
+      timeout:5000,
+      success: function (data) {
+        $("#container").html(data);
+        txt.style.color = 'green';
+        txt.innerText = '加载成功!'
+        setTimeout(function(){
+           img.style.display="none";
+        },1500);
+      },
+      error:function (data) {
+        $("#container").html("");
+        alert("加载失败!");
+        img.style.display="none";
+      }
+   });
+}
+$(document).ready(function(){
+    var img = document.getElementById("img01");
+    var txt = document.getElementById("txt");
+    //第一次加载
+    loadingForm(img,txt);
+    //改变后加载
+    $("#insList").change(function(){
+        loadingForm(img,txt);
+    });
+});
+</script>
+<body>
+<table width="100%" border="0">
+  <tr>
+    <td width="24%"><form id="form1" name="form1" method="post" action="">
+    选择保单号
+        <select name="insList" size="1" id="insList">
+{% for item in baodans %}
+          <option>{{ item }}</option>
+{% endfor %}
+    </select>
+    </form></td>
+    <td width="76%"><p align="center"><strong><em>保单查看</em></strong></p></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" id="img01" style="display:none;">
+      <tr>
+        <td width="19%"><img src="loading2.gif" width="72" height="73" /></td>
+        <td id="txt" width="81%">正在加载...</td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<div id="container" />
+</body>
+</html>

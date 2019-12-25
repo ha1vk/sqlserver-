@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户管理</title>
+<!--jquery需要引入的文件-->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
+<script language="JavaScript">
+function loadingStatus(img,txt,btn,ID_N) {
+   img = document.getElementById(img);
+   txt = document.getElementById(txt);
+   btn = document.getElementById(btn);
+   txt.style.display="inline";
+   txt.style.color = 'black';
+   txt.innerText = '用户状态:正在加载...'
+   img.style.display="inline";
+   $.ajax({
+      async:false,
+      type: 'get',
+      cache: false,
+      url: "judge_users?ID_N=" + ID_N,
+      processData: false,
+      timeout:5000,
+      success: function (data) {
+        $("#container").html(data);
+        txt.style.color = 'green';
+        txt.innerText = '加载成功!'
+        setTimeout(function(){
+           img.style.display="none";
+           if (data.indexOf("黑名单") != -1) {
+              txt.style.color = 'red';
+              btn.style.display="none";
+           } else {
+              btn.style.display="inline";
+           }
+           txt.innerText = "用户状态:" + data + '\n\n';
+        },1500);
+      },
+      error:function (data) {
+        txt.style.color = 'red';
+        txt.innerText = "用户状态:加载失败\n";
+        btn.style.display="none";
+        img.style.display="none";
+      }
+   });
+}
+function loadingOwnedBaodan(img,txt,username) {
+   img = document.getElementById(img);
+   txt = document.getElementById(txt);
+   txt.style.display="inline";
+   txt.style.color = 'black';
+   txt.innerText = '名下保单:正在加载...'
+   img.style.display="inline";
+   $.ajax({
+      async:false,
+      type: 'get',
+      cache: false,
+      url: "owned_baodan?username=" + username,
+      processData: false,
+      timeout:5000,
+      success: function (data) {
+        $("#container").html(data);
+        txt.style.color = 'green';
+        txt.innerText = '加载成功!'
+        setTimeout(function(){
+           img.style.display="none";
+           txt.innerText = "名下保单:\n" + data + '\n';
+        },1500);
+      },
+      error:function (data) {
+        txt.style.color = 'red';
+        txt.innerText = "名下保单:加载失败\n";
+        img.style.display="none";
+      }
+   });
+}
+function addBlackList(img,txt,btn,txt2,username,name,ID_N) {
+   img = document.getElementById(img);
+   txt = document.getElementById(txt);
+   txt2 = document.getElementById(txt2);
+   btn = document.getElementById(btn);
+   btn.style.display="none";
+   txt.style.display="inline";
+   txt.style.color = 'black';
+   txt.innerText = '正在添加...'
+   img.style.display="inline";
+   $.ajax({
+      type: 'post',
+      cache: false,
+      url: "addBlackList",
+      data:JSON.stringify({
+        "username":username,
+        "name":name,
+        "ID_N":ID_N
+      }),
+      contentType: "application/json",
+      dataType: "jsonp",
+      processData: false,
+      timeout:2000,
+      complete: function (data) {
+        txt.style.display="none";
+        img.style.display="none";
+        if(data.status==200) {
+           alert("黑名单添加成功");
+           btn.style.display="none";
+           txt2.style.color="red";
+           txt2.innerText="用户状态:黑名单用户\n\n";
+        } else {
+           alert("黑名单添加失败");
+           btn.style.display="inline";
+        }
+      }
+   });
+}
+</script>
+</head>
+
+<body>
+<table width="100%" border="2">
+{% for user in users %}
+  {% if loop.index is not divisibleby(2) %}
+  <tr>
+  {%endif%}
+    <td width="50%"><p>用户名:{{ user.username }}</p>
+      <p>姓名:{{ user.name }}</p>
+      <p>身份证:{{ user.ID_N }}</p>
+      <p id="p0{{ loop.index }}">用户状态:</p>
+      <img id="img{{ loop.index }}" src="loading3.gif" width="130" height="131" style="display:none;" />        
+      <p id="p1{{ loop.index }}">名下保单:</p>
+      <img id="img0{{ loop.index }}" src="loading3.gif" width="130" height="131" style="display:none;" />        
+       <div align="center">
+        <p id="p00{{ loop.index }}"></p>
+        <img id="img00{{ loop.index }}" src="loading3.gif" width="130" height="131" style="display:none;" />        
+        <input type="submit" name="btn" id="btn{{loop.index}}" value="添加黑名单" style="display:none;" onclick="addBlackList('img00{{ loop.index }}','p00{{ loop.index }}','btn{{loop.index}}','p0{{ loop.index }}','{{user.username}}','{{user.name}}','{{user.ID_N}}')"/>
+       </div>
+       <script language="javascript">loadingOwnedBaodan("img0{{ loop.index }}","p1{{ loop.index }}","{{user.username}}" );</script>
+       <script language="javascript">loadingStatus("img{{ loop.index }}","p0{{ loop.index }}","btn{{loop.index}}","{{user.ID_N}}");</script>
+       </td>
+    {% if loop.index is divisibleby(2) %}
+  </tr>
+   {%endif%}
+{% endfor %}
+{% if len is not divisibleby(2) %}
+  </tr>
+{%endif%}
+</table>
+</body>
+</html>

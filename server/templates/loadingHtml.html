@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>加载中...</title>
+<!--jquery需要引入的文件-->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+<div align="center">
+  <p>加载中...</p>
+  <p><img src="loading2.gif" width="560" height="420" /></p>
+  <script>
+   setTimeout( function(){
+     $.ajax({
+       async:false,    //异步
+       url:'{{m_html}}?page={{page}}',
+       type:'get',
+       complete:function(XMLHttpRequest, textStatus){
+           {% if m_html == "load_transactions" %}
+           document.write(XMLHttpRequest.responseText);
+           {% else %}
+           $("html").html(XMLHttpRequest.responseText);
+           {%endif%}
+       }
+     });
+    },1500);
+  </script>
+</div>
+</body>
+</html>

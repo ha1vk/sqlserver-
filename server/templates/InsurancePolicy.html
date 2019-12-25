@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>保单填写</title>
+<!--jquery需要引入的文件-->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js"></script>
+<!--ajax提交表单需要引入jquery.form.js-->
+<script type="text/javascript" src="jquery.form.js"></script>
+<script type="text/javascript" src="jquery.processing.plugin.js"></script>
+<script>
+$(function () {
+   //给id为ajaxSubmit的按钮提交表单
+   $("#submit").on("click",function () {
+      $("#submit").cli
+      $("#form1").ajaxSubmit({
+         beforeSubmit:function () {
+            document.getElementById("submit").disabled = true;
+            $(document).progressDialog.showDialog("请耐心等待",$("#basePath").val()+ "loading2.gif");
+         },
+         complete: function (data) {
+            $(document).progressDialog.hideDialog();
+            if(data.status==200) {
+              alert("投保成功!")
+              $("html").html(data.responseText);
+            } else {
+              alert(data.responseText);
+              document.getElementById("submit").disabled = false;
+            }
+         }
+      });
+    });
+});
+</script>
+</head>
+<body>
+<blockquote>
+  <blockquote>
+    <h3 align="center"><strong>财产保险基本险保险单
+    </strong>    </h3>
+<form id="form1" name="form1" method="post" action="submitInsForm">
+    <table width="100%" border="2" align="center">
+      <tr>
+        <td width="114">保险单号码：</td>
+        <td colspan="5"><label for="baodan_number">
+          <input name="baodan_number" type="text" id="baodan_number" readonly="readonly" value={{ baodan_number }} />
+        </label></td>
+      </tr>
+      <tr>
+        <td colspan="6"><p>鉴于
+          <input name="baodan_ren" type="text" id="baodan_ren" value="" />
+          （以下称被保险人）已向本公司投保财产保险基本险以及附加
+          <input name="baodan_id2" type="text" id="baodan_id2" value="" />
+          险，  并按本保险条款约定交纳保险费，本公司特签发本保险单并同意依照财产保险基本险条款和附加险  条款及其特别约定条件，承担被保险人下列财产的保险责任。 </p></td>
+      </tr>
+      <tr>
+        <td height="31">&nbsp;</td>
+        <td colspan="2"><div align="center">投保标的项目</div></td>
+        <td><div align="center">以何种价值投保</div></td>
+        <td width="331"><div align="center">费率（#）</div></td>
+        <td width="318"><div align="center">保险费（元）</div></td>
+      </tr>
+      <tr>
+        <td rowspan="8"><p align="center">基本险</p></td>
+        <td height="31" colspan="2"><div align="center">
+          <input name="baodan_id" type="text" id="baodan_id" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id3" type="text" id="baodan_id3" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id4" type="text" id="baodan_id4" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id5" type="text" id="baodan_id5" value="" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();" />
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31" colspan="2"><div align="center">
+          <input name="baodan_id6" type="text" id="baodan_id6" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id7" type="text" id="baodan_id7" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id8" type="text" id="baodan_id8" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id9" type="text" id="baodan_id9" value="" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();"/>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31" colspan="2"><div align="center">
+          <input name="baodan_id10" type="text" id="baodan_id10" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id11" type="text" id="baodan_id11" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id12" type="text" id="baodan_id12" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id13" type="text" id="baodan_id13" value="" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();" />
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31" colspan="2"><div align="center">
+          <input name="baodan_id14" type="text" id="baodan_id14" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id15" type="text" id="baodan_id15" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id16" type="text" id="baodan_id16" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id17" type="text" id="baodan_id17" value="" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();"/>
+        </div></td>
+      </tr>
+      <tr>
+        <td width="20" rowspan="4"><p align="center">特<br />
+          约<br />
+          保<br />
+          险<br />
+          标的</p></td>
+        <td width="313" height="31"><div align="center">
+          <input name="baodan_id18" type="text" id="baodan_id18" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id19" type="text" id="baodan_id19" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id20" type="text" id="baodan_id20" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id21" type="text" id="baodan_id21" value="" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();"/>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31"><div align="center">
+          <input name="baodan_id22" type="text" id="baodan_id22" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id23" type="text" id="baodan_id23" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id24" type="text" id="baodan_id24" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id25" type="text" id="baodan_id25" value="" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();"/>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31"><div align="center">
+          <input name="baodan_id26" type="text" id="baodan_id26" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id27" type="text" id="baodan_id27" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id28" type="text" id="baodan_id28" value="" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id29" type="text" id="baodan_id29" value="" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();"/>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="51"><div align="center">
+          <textarea name="baodan_id30" id="baodan_id30"></textarea>
+        </div></td>
+        <td width="342"><div align="center">
+          <textarea name="baodan_id31" id="baodan_id31"></textarea>
+        </div></td>
+        <td><div align="center">
+          <textarea name="baodan_id32" id="baodan_id32"></textarea>
+        </div></td>
+        <td><div align="center">
+          <textarea name="baodan_id33" id="baodan_id33" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();"> </textarea>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="40" colspan="6">总保险金额（大写）
+          <input name="baodan_id34" type="text" id="baodan_id34" value="" readonly="readonly" />
+          （小写）
+          <input name="baodan_id35" type="text" id="baodan_id35" value="" readonly="readonly" /></td>
+      </tr>
+      <tr>
+        <td rowspan="3"><p align="center">附加险</p></td>
+        <td height="23" colspan="5"><blockquote>
+          <blockquote>
+            <p>
+              <textarea name="baodan_id36" cols="100" id="baodan_id36" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();" ></textarea>
+            </p>
+          </blockquote>
+        </blockquote></td>
+      </tr>
+      <tr>
+        <td height="24" colspan="5"><blockquote>
+          <blockquote>
+            <p>
+              <textarea name="baodan_id37" cols="100" id="baodan_id37" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();" ></textarea>
+            </p>
+          </blockquote>
+        </blockquote></td>
+      </tr>
+      <tr>
+        <td height="39" colspan="5"><blockquote>
+          <blockquote>
+            <p>
+              <textarea name="baodan_id38" cols="100" id="baodan_id38" oninput='calCost()' onkeyup="(this.v=function(){this.value=this.value.replace(/[^0-9.]+/,'');}).call(this)" onblur="this.v();"></textarea>
+            </p>
+          </blockquote>
+        </blockquote></td>
+      </tr>
+      <tr>
+        <td height="67" colspan="6"><p>总保险费（大写）
+          <input name="baodan_id39" type="text" id="baodan_id39" value="" readonly="readonly" />
+          （小写）
+          <input name="baodan_id40" type="text" id="baodan_id40" value="" readonly="readonly" />
+        </p>
+          <p>特别声明：发生保险事故时，被保险人未按约定交付保险费，本公司不负赔偿责任。</p></td>
+      </tr>
+      <tr>
+        <td height="38" colspan="6">保险责任期限自
+          <input name="baodan_id54" type="text" id="baodan_id54" size="10" maxlength="4" readonly="readonly" value={{ curY }} />
+          年
+          <input name="baodan_id55" type="text" id="baodan_id55" size="10" maxlength="4" readonly="readonly" value={{ curM }} />
+          月
+          <input name="baodan_id56" type="text" id="baodan_id56" size="10" maxlength="4" readonly="readonly" value={{ curD }}/>
+          日零时起至
+          <input name="baodan_id57" type="text" id="baodan_id57" size="10" maxlength="4" readonly="readonly" value={{ tarY }}/>
+          年
+          <input name="baodan_id58" type="text" id="baodan_id58" size="10" maxlength="4" readonly="readonly" value={{ tarM }}/>
+          月
+          <input name="baodan_id59" type="text" id="baodan_id59" size="10" maxlength="4" readonly="readonly" value={{ tarD }}/>
+          日二十四时止</td>
+      </tr>
+      <tr>
+        <td height="85"><div align="center">特别约定</div></td>
+        <td height="85" colspan="3"><blockquote>
+          <p>被保险人地址：
+            <input name="baodan_id41" type="text" id="baodan_id41" value="" />
+          </p>
+          <p>电话：
+            <input name="baodan_id42" type="text" id="baodan_id42" value="" />
+          </p>
+          <p>邮政编码：
+            <input name="baodan_id43" type="text" id="baodan_id43" value="" />
+          </p>
+          <p>所有制：
+            <input name="baodan_id44" type="text" id="baodan_id44" value="" />
+          </p>
+          <p>财产坐落地址：
+            <input name="baodan_id45" type="text" id="baodan_id45" value="" />
+          </p>
+        </blockquote></td>
+        <td height="85" colspan="2"><blockquote>
+          <p>保险人：
+            <input name="baodan_id46" type="text" id="baodan_id46" size="20" readonly="readonly" value={{ Insurer }} />
+            保险有限公司</p>
+          <p>地址：
+            <input name="baodan_id47" type="text" id="baodan_id47" readonly="readonly" value={{ InsurerAddr }} />
+          </p>
+          <p>邮编：
+            <input name="baodan_id48" type="text" id="baodan_id48" readonly="readonly" value={{ InsurerZip }}/>
+          </p>
+          <p>电话：
+            <input name="baodan_id49" type="text" id="baodan_id49" readonly="readonly" value={{ InsurerTel }}/>
+          </p>
+          <p>传真：
+            <input name="baodan_id50" type="text" id="baodan_id50" readonly="readonly" value={{ InsurerFax }}/>
+          </p>
+        </blockquote>
+          <p align="center">
+            <input name="baodan_id51" type="text" id="baodan_id51" size="10" maxlength="4" readonly="readonly" value={{ curY }} />
+            年
+            <input name="baodan_id52" type="text" id="baodan_id52" size="10" maxlength="2" readonly="readonly" value={{ curM }} />
+            月
+            <input name="baodan_id53" type="text" id="baodan_id53" size="10" maxlength="3" readonly="readonly" value={{ curD }}/>
+            日 </p></td>
+      </tr>
+    </table>
+    <div align="center">
+       <input type="submit" name="submit" id="submit" value="提交" />
+    </div>
+  </form>
+    <p align="center">&nbsp;</p>
+    <div align="center"></div>
+  </blockquote>
+</blockquote>
+
+<script type="text/javascript">
+//代码如下所示：
+function convertCurrency(money) {
+  //汉字的数字
+  var cnNums = new Array('零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖');
+  //基本单位
+  var cnIntRadice = new Array('', '拾', '佰', '仟');
+  //对应整数部分扩展单位
+  var cnIntUnits = new Array('', '万', '亿', '兆');
+  //对应小数部分单位
+  var cnDecUnits = new Array('角', '分', '毫', '厘');
+  //整数金额时后面跟的字符
+  var cnInteger = '整';
+  //整型完以后的单位
+  var cnIntLast = '元';
+  //最大处理的数字
+  var maxNum = 999999999999999.9999;
+  //金额整数部分
+  var integerNum;
+  //金额小数部分
+  var decimalNum;
+  //输出的中文金额字符串
+  var chineseStr = '';
+  //分离金额后用的数组，预定义
+  var parts;
+  if (money == '') { return ''; }
+  money = parseFloat(money);
+  if (money >= maxNum) {
+    //超出最大处理数字
+    return '';
+  }
+  if (money == 0) {
+    chineseStr = cnNums[0] + cnIntLast + cnInteger;
+    return chineseStr;
+  }
+  //转换为字符串
+  money = money.toString();
+  if (money.indexOf('.') == -1) {
+    integerNum = money;
+    decimalNum = '';
+  } else {
+    parts = money.split('.');
+    integerNum = parts[0];
+    decimalNum = parts[1].substr(0, 4);
+  }
+  //获取整型部分转换
+  if (parseInt(integerNum, 10) > 0) {
+    var zeroCount = 0;
+    var IntLen = integerNum.length;
+    for (var i = 0; i < IntLen; i++) {
+      var n = integerNum.substr(i, 1);
+      var p = IntLen - i - 1;
+      var q = p / 4;
+      var m = p % 4;
+      if (n == '0') {
+        zeroCount++;
+      } else {
+        if (zeroCount > 0) {
+          chineseStr += cnNums[0];
+        }
+        //归零
+        zeroCount = 0;
+        chineseStr += cnNums[parseInt(n)] + cnIntRadice[m];
+      }
+      if (m == 0 && zeroCount < 4) {
+        chineseStr += cnIntUnits[q];
+      }
+    }
+    chineseStr += cnIntLast;
+  }
+  //小数部分
+  if (decimalNum != '') {
+    var decLen = decimalNum.length;
+    for (var i = 0; i < decLen; i++) {
+      var n = decimalNum.substr(i, 1);
+      if (n != '0') {
+        chineseStr += cnNums[Number(n)] + cnDecUnits[i];
+      }
+    }
+  }
+  if (chineseStr == '') {
+    chineseStr += cnNums[0] + cnIntLast + cnInteger;
+  } else if (decimalNum == '') {
+    chineseStr += cnInteger;
+  }
+  return chineseStr;
+}
+
+function calCost() {
+  var id5 = "0" + document.getElementById("baodan_id5").value;
+  var id9 = "0" + document.getElementById("baodan_id9").value;
+  var id13 = "0" + document.getElementById("baodan_id13").value;
+  var id17 = "0" + document.getElementById("baodan_id17").value;
+  var id21 = "0" +document.getElementById("baodan_id21").value;
+  var id25 = "0" +document.getElementById("baodan_id25").value;
+  var id29 = "0" +document.getElementById("baodan_id29").value;
+  var id33 = "0" +document.getElementById("baodan_id33").value;
+  var id36 = "0" +document.getElementById("baodan_id36").value;
+  var id37 = "0" +document.getElementById("baodan_id37").value;
+  var id38 = "0" +document.getElementById("baodan_id38").value;
+  var ans = parseFloat(id5) + parseFloat(id9) + parseFloat(id13) + parseFloat(id17) + parseFloat(id21) + parseFloat(id25) + parseFloat(id29) + parseFloat(id33) + parseFloat(id36) + parseFloat(id37) + parseFloat(id38);
+  var daxie = convertCurrency(ans);
+  document.getElementById("baodan_id34").value = daxie;
+  document.getElementById("baodan_id35").value = ans;
+  document.getElementById("baodan_id39").value = daxie;
+  document.getElementById("baodan_id40").value = ans;
+}
+</script>
+</body>
+</html>

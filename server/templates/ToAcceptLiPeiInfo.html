@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>保单填写</title>
+</head>
+
+<body>
+<blockquote>
+  <blockquote>
+     <h3 align="center">
+      <strong>财产保险基本险保险单</strong>    
+      <a class="button"  href="accept_baodan?baodan_num={{ baodan_number }}">确认审核</a>
+    </h3>
+    <form id="form1" name="form1" method="post" action="submitInsForm">
+      <table width="100%" border="2" align="center">
+      <tr>
+        <td width="114">保险单号码：</td>
+        <td colspan="5"><label for="baodan_number">
+          <input name="baodan_number" type="text" disabled="disabled" id="baodan_number" readonly="readonly" value="{{ baodan_number }}" />
+        </label></td>
+      </tr>
+      <tr>
+        <td colspan="6"><p>鉴于
+          <input name="baodan_ren" type="text" disabled="disabled" id="baodan_ren" value="{{ baodan_ren }}" readonly="readonly" />
+          （以下称被保险人）已向本公司投保财产保险基本险以及附加
+          <input name="baodan_id2" type="text" disabled="disabled" id="baodan_id2" value="{{ baodan_id2 }}" readonly="readonly" />
+          险，  并按本保险条款约定交纳保险费，本公司特签发本保险单并同意依照财产保险基本险条款和附加险  条款及其特别约定条件，承担被保险人下列财产的保险责任。 </p></td>
+      </tr>
+      <tr>
+        <td height="31">&nbsp;</td>
+        <td colspan="2"><div align="center">投保标的项目</div></td>
+        <td><div align="center">以何种价值投保</div></td>
+        <td width="331"><div align="center">费率（#）</div></td>
+        <td width="318"><div align="center">保险费（元）</div></td>
+      </tr>
+      <tr>
+        <td rowspan="8"><p align="center">基本险</p></td>
+        <td height="31" colspan="2"><div align="center">
+          <input name="baodan_id" type="text" disabled="disabled" id="baodan_id" value="{{ baodan_id }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id3" type="text" disabled="disabled" id="baodan_id3" value="{{ baodan_id3 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id4" type="text" disabled="disabled" id="baodan_id4" value="{{ baodan_id4 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id5" type="text" disabled="disabled" id="baodan_id5"  value="{{ baodan_id5 }}" readonly="readonly"  />
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31" colspan="2"><div align="center">
+          <input name="baodan_id6" type="text" disabled="disabled" id="baodan_id6" value="{{ baodan_id6 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id7" type="text" disabled="disabled" id="baodan_id7" value="{{ baodan_id7 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id8" type="text" disabled="disabled" id="baodan_id8" value="{{ baodan_id8 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id9" type="text" disabled="disabled" id="baodan_id9"  value="{{ baodan_id9 }}" readonly="readonly" />
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31" colspan="2"><div align="center">
+          <input name="baodan_id10" type="text" disabled="disabled" id="baodan_id10" value="{{ baodan_id10 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id11" type="text" disabled="disabled" id="baodan_id11" value="{{ baodan_id11 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id12" type="text" disabled="disabled" id="baodan_id12" value="{{ baodan_id12 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id13" type="text" disabled="disabled" id="baodan_id13"  value="{{ baodan_id13 }}" readonly="readonly"  />
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31" colspan="2"><div align="center">
+          <input name="baodan_id14" type="text" disabled="disabled" id="baodan_id14" value="{{ baodan_id14 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id15" type="text" disabled="disabled" id="baodan_id15" value="{{ baodan_id15 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id16" type="text" disabled="disabled" id="baodan_id16" value="{{ baodan_id16 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id17" type="text" disabled="disabled" id="baodan_id17"  value="{{ baodan_id17 }}" readonly="readonly" />
+        </div></td>
+      </tr>
+      <tr>
+        <td width="20" rowspan="4"><p align="center">特<br />
+          约<br />
+          保<br />
+          险<br />
+          标的</p></td>
+        <td width="313" height="31"><div align="center">
+          <input name="baodan_id18" type="text" disabled="disabled" id="baodan_id18" value="{{ baodan_id18 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id19" type="text" disabled="disabled" id="baodan_id19" value="{{ baodan_id19 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id20" type="text" disabled="disabled" id="baodan_id20" value="{{ baodan_id20 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id21" type="text" disabled="disabled" id="baodan_id21"  value="{{ baodan_id21 }}" readonly="readonly" />
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31"><div align="center">
+          <input name="baodan_id22" type="text" disabled="disabled" id="baodan_id22" value="{{ baodan_id22 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id23" type="text" disabled="disabled" id="baodan_id23" value="{{ baodan_id23 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id24" type="text" disabled="disabled" id="baodan_id24" value="{{ baodan_id24 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id25" type="text" disabled="disabled" id="baodan_id25"  value="{{ baodan_id25 }}" readonly="readonly" />
+        </div></td>
+      </tr>
+      <tr>
+        <td height="31"><div align="center">
+          <input name="baodan_id26" type="text" disabled="disabled" id="baodan_id26" value="{{ baodan_id26 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id27" type="text" disabled="disabled" id="baodan_id27" value="{{ baodan_id27 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id28" type="text" disabled="disabled" id="baodan_id28" value="{{ baodan_id28 }}" readonly="readonly" />
+        </div></td>
+        <td><div align="center">
+          <input name="baodan_id29" type="text" disabled="disabled" id="baodan_id29"  value="{{ baodan_id29 }}" readonly="readonly" />
+        </div></td>
+      </tr>
+      <tr>
+        <td height="51"><div align="center">
+          <textarea name="baodan_id30" disabled="disabled" readonly="readonly" id="baodan_id30" >{{ baodan_id30 }} </textarea>
+        </div></td>
+        <td width="342"><div align="center">
+          <textarea name="baodan_id31" disabled="disabled" readonly="readonly" id="baodan_id31" >{{ baodan_id31 }}</textarea>
+        </div></td>
+        <td><div align="center">
+          <textarea name="baodan_id32" disabled="disabled" readonly="readonly" id="baodan_id32" >{{ baodan_id32 }}</textarea>
+        </div></td>
+        <td><div align="center">
+          <textarea name="baodan_id33" disabled="disabled" readonly="readonly" id="baodan_id33" > {{ baodan_id33 }} </textarea>
+        </div></td>
+      </tr>
+      <tr>
+        <td height="40" colspan="6">总保险金额（大写）
+          <input name="baodan_id34" type="text" disabled="disabled" id="baodan_id34" value="{{ baodan_id34 }}" readonly="readonly" />
+          （小写）
+          <input name="baodan_id35" type="text" disabled="disabled" id="baodan_id35" value="{{ baodan_id35 }}" readonly="readonly" /></td>
+      </tr>
+      <tr>
+        <td rowspan="3"><p align="center">附加险</p></td>
+        <td height="23" colspan="5"><blockquote>
+          <blockquote>
+            <p>
+              <textarea name="baodan_id36" cols="100" disabled="disabled" readonly="readonly" id="baodan_id36"  > {{ baodan_id36 }} </textarea>
+            </p>
+          </blockquote>
+        </blockquote></td>
+      </tr>
+      <tr>
+        <td height="24" colspan="5"><blockquote>
+          <blockquote>
+            <p>
+              <textarea name="baodan_id37" cols="100" disabled="disabled" readonly="readonly" id="baodan_id37" >{{ baodan_id37 }}</textarea>
+            </p>
+          </blockquote>
+        </blockquote></td>
+      </tr>
+      <tr>
+        <td height="39" colspan="5"><blockquote>
+          <blockquote>
+            <p>
+              <textarea name="baodan_id38" cols="100" disabled="disabled" readonly="readonly" id="baodan_id38" >{{ baodan_id38 }}</textarea>
+            </p>
+          </blockquote>
+        </blockquote></td>
+      </tr>
+      <tr>
+        <td height="67" colspan="6"><p>总保险费（大写）
+          <input name="baodan_id39" type="text" disabled="disabled" id="baodan_id39" value="{{ baodan_id39 }}" readonly="readonly" />
+          （小写）
+          <input name="baodan_id40" type="text" disabled="disabled" id="baodan_id40" value="{{ baodan_id40 }}" readonly="readonly" />
+        </p>
+          <p>特别声明：发生保险事故时，被保险人未按约定交付保险费，本公司不负赔偿责任。</p></td>
+      </tr>
+      <tr>
+        <td height="38" colspan="6">保险责任期限自
+          <input name="baodan_id54" type="text" disabled="disabled" id="baodan_id54" size="10" maxlength="4" readonly="readonly" value="{{ baodan_id54 }}" />
+          年
+          <input name="baodan_id55" type="text" disabled="disabled" id="baodan_id55" size="10" maxlength="4" readonly="readonly" value="{{ baodan_id55 }}" />
+          月
+          <input name="baodan_id56" type="text" disabled="disabled" id="baodan_id56" size="10" maxlength="4" readonly="readonly" value="{{ baodan_id56 }}" />
+          日零时起至
+          <input name="baodan_id57" type="text" disabled="disabled" id="baodan_id57" size="10" maxlength="4" readonly="readonly" value="{{ baodan_id57 }}" />
+          年
+          <input name="baodan_id58" type="text" disabled="disabled" id="baodan_id58" size="10" maxlength="4" readonly="readonly" value="{{ baodan_id58 }}" />
+          月
+          <input name="baodan_id59" type="text" disabled="disabled" id="baodan_id59" size="10" maxlength="4" readonly="readonly" value="{{ baodan_id59 }}" />
+          日二十四时止</td>
+      </tr>
+      <tr>
+        <td height="85"><div align="center">特别约定</div></td>
+        <td height="85" colspan="3"><blockquote>
+          <p>被保险人地址：
+            <input name="baodan_id41" type="text" disabled="disabled" id="baodan_id41" value="{{ baodan_id41 }}" readonly="readonly" />
+          </p>
+          <p>电话：
+            <input name="baodan_id42" type="text" disabled="disabled" id="baodan_id42" value="{{ baodan_id42 }}" readonly="readonly" />
+          </p>
+          <p>邮政编码：
+            <input name="baodan_id43" type="text" disabled="disabled" id="baodan_id43" value="{{ baodan_id43 }}" readonly="readonly" />
+          </p>
+          <p>所有制：
+            <input name="baodan_id44" type="text" disabled="disabled" id="baodan_id44" value="{{ baodan_id44 }}" readonly="readonly" />
+          </p>
+          <p>财产坐落地址：
+            <input name="baodan_id45" type="text" disabled="disabled" id="baodan_id45" value="{{ baodan_id45 }}" readonly="readonly" />
+          </p>
+        </blockquote></td>
+        <td height="85" colspan="2"><blockquote>
+          <p>保险人：
+            <input name="baodan_id46" type="text" disabled="disabled" id="baodan_id46" size="20" readonly="readonly" value="{{ baodan_id46 }}" />
+            保险有限公司</p>
+          <p>地址：
+            <input name="baodan_id47" type="text" disabled="disabled" id="baodan_id47" readonly="readonly" value="{{ baodan_id47 }}" />
+          </p>
+          <p>邮编：
+            <input name="baodan_id48" type="text" disabled="disabled" id="baodan_id48" readonly="readonly" value="{{ baodan_id48 }}"/>
+          </p>
+          <p>电话：
+            <input name="baodan_id49" type="text" disabled="disabled" id="baodan_id49" readonly="readonly" value="{{ baodan_id49 }}" />
+          </p>
+          <p>传真：
+            <input name="baodan_id50" type="text" disabled="disabled" id="baodan_id50" readonly="readonly" value="{{ baodan_id50 }}" />
+          </p>
+        </blockquote>
+          <p align="center">
+            <input name="baodan_id51" type="text" disabled="disabled" id="baodan_id51" size="10" maxlength="4" readonly="readonly" value="{{ baodan_id51 }}" />
+            年
+            <input name="baodan_id52" type="text" disabled="disabled" id="baodan_id52" size="10" maxlength="2" readonly="readonly" value="{{ baodan_id52 }}" />
+            月
+            <input name="baodan_id53" type="text" disabled="disabled" id="baodan_id53" size="10" maxlength="3" readonly="readonly" value="{{ baodan_id53 }}" />
+            日 </p></td>
+      </tr>
+    </table>
+</form>
+<div align="center">
+  <h3 align="center"><strong>理赔人申请单</strong></h3>
+  <table width="100%" border="2" align="center">
+    <tr>
+      <td width="15%">姓名:
+        <input name="s_name" type="text" disabled="disabled" id="s_name" size="20" readonly="readonly" value="{{s_name}}"/></td>
+      <td width="13%">性别:
+        <label> <br />
+          <select name="sex" size="1" id="sex" disabled="disabled">
+            <option>{{sex}}</option>
+          </select>
+        </label>
+        <br /></td>
+      <td width="27%"><p>与出险人关系:
+        
+          <input name="relation" type="text" disabled="disabled" id="relation" size="20" readonly="readonly" value="{{relation}}"/>
+        </p></td>
+      <td width="22%">身份证号码:
+        <input name="id_num" type="text" disabled="disabled" id="id_num" size="25" readonly="readonly" value="{{id_num}}" /></td>
+      <td width="23%">电话:
+        <input name="phone" type="text" disabled="disabled" id="phone" value="{{phone}}" size="30" readonly="readonly"/></td>
+    </tr>
+    <tr>
+      <td colspan="2">联系地址:
+        <input name="home_addr" type="text" disabled="disabled" id="home_addr" readonly="readonly" value="{{home_addr}}"/></td>
+      <td>银行账号:
+        <input name="account" type="text" disabled="disabled" id="account" readonly="readonly" value="{{account}}"/></td>
+      <td>开户行:
+        <input name="bank" type="text" disabled="disabled" id="bank" readonly="readonly" value="{{bank}}"/></td>
+      <td>出现原因:
+        <input name="reason" type="text" disabled="disabled" id="reason" readonly="readonly" value="{{reason}}"/></td>
+    </tr>
+    <tr>
+      <td colspan="2">保单编号:
+        <input name="baodan_number2" type="text" disabled="disabled" id="baodan_number2" value="{{ baodan_number }}" size="20" readonly="readonly"/></td>
+      <td colspan="3">鉴定机构的回执的案件编号:
+        <input name="identify_num" type="text" disabled="disabled" id="identify_num" size="30" readonly="readonly" value="{{identify_num}}"/></td>
+    </tr>
+  </table>
+</div>
+  </blockquote>
+</blockquote>
+</body>
+</html>
